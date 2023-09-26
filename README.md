@@ -29,7 +29,7 @@ jobs:
     steps:
       - name: Export confluence pdf
         id: pdf-export
-        uses: VakuWare/download-confluence-scroll-pdf@v1
+        uses: VakuWare/export-confluence-scroll-pdf@v1
         with:
           server-url: 'https://scroll-pdf.us.exporter.k15t.app'
           page: '134185461'

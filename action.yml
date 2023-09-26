@@ -1,4 +1,4 @@
-name: 'Download Confluence Scroll Pdf'
+name: 'Export Confluence Scroll Pdf'
 description: 'Export and download a pdf from K15s confluence scroll pdf exporter'
 inputs:
   server-url:

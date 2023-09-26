@@ -1,22 +1,22 @@
 # Export confluence scroll pdf action
 
-This action exports a confluence page and downloads it using scroll pdf. It ouputs the path of the resuling pdf.
+This action exports a confluence page and downloads it using scroll pdf. It outputs the path of the resulting pdf.
 
 ## Inputs
 
 ### `server-url`
 **Required** Url of the server to be downloaded from. Default `"https://scroll-pdf.us.exporter.k15t.app"`.
 ### `page`
-**Required** Id of the page to be exported. Default `"World"`.
+**Required** ID of the page to be exported. Default `"World"`.
 ### `scope`
 **template** The scope of the action. Default `"descendants"`.
 ### `template`
-**Required** Id of the scroll pdf template. Default `"com.k15t.scroll.pdf.default-template-documentation"`.
+**Required** ID of the scroll pdf template. Default `"com.k15t.scroll.pdf.default-template-documentation"`.
 
 ## Outputs
 
 ### `path`
-Path to the created pdf file
+Path to the created PDF file
 
 ## Example usage
 
@@ -31,6 +31,7 @@ jobs:
         id: pdf-export
         uses: VakuWare/download-confluence-scroll-pdf@v1
         with:
+          server-url: 'https://scroll-pdf.us.exporter.k15t.app'
           page: '134185461'
           scope: 'descendants'
           template: 'com.k15t.scroll.pdf.default-template-documentation'

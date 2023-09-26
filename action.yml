@@ -3,18 +3,18 @@ description: 'Export and download a pdf from K15s confluence scroll pdf exporter
 inputs:
   server-url:
     description: 'Url of the server to be downloaded from'
-    required: true
+    required: false
     default: https://scroll-pdf.us.exporter.k15t.app
   page:
     description: 'Id of the page to be exported'
     required: true
   scope:
     description: 'The scope of the action'
-    required: true
+    required: false
     default: "descendants"
   template:
     description: 'Id of the scroll pdf template'
-    required: true
+    required: false
     default: 'com.k15t.scroll.pdf.default-template-documentation'
 outputs:
   path:

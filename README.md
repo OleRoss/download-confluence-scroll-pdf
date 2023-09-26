@@ -18,6 +18,11 @@ This action exports a confluence page and downloads it using scroll pdf. It outp
 ### `path`
 Path to the created PDF file
 
+## Environment variables
+
+### `SCROLL_PDF_BEARER`
+The bearer authorization token configured
+
 ## Example usage
 
 ```yaml
@@ -29,12 +34,14 @@ jobs:
     steps:
       - name: Export confluence pdf
         id: pdf-export
-        uses: VakuWare/export-confluence-scroll-pdf@v1
+        uses: OleRoss/export-confluence-scroll-pdf@v1
         with:
           server-url: 'https://scroll-pdf.us.exporter.k15t.app'
           page: '134185461'
           scope: 'descendants'
           template: 'com.k15t.scroll.pdf.default-template-documentation'
+        env:
+          SCROLL_PDF_BEARER: ${{ secrets.SCROLL_PDF_BEARER }}
       - name: Get the output time
         run: echo "You can find the file at ${{ steps.pdf-export.outputs.path }}"
 ```

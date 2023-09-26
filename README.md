@@ -4,14 +4,14 @@ This action exports a confluence page and downloads it using scroll pdf. It outp
 
 ## Inputs
 
-### `server-url`
-**Required** Url of the server to be downloaded from. Default `"https://scroll-pdf.us.exporter.k15t.app"`.
 ### `page`
 **Required** ID of the page to be exported.
+### `server-url`
+**Optional** Url of the server to be downloaded from. Default `"https://scroll-pdf.us.exporter.k15t.app"`.
 ### `scope`
-**template** The scope of the action. Default `"descendants"`.
+**Optional** The scope of the action. Default `"descendants"`.
 ### `template`
-**Required** ID of the scroll pdf template. Default `"com.k15t.scroll.pdf.default-template-documentation"`.
+**Optional** ID of the scroll pdf template. Default `"com.k15t.scroll.pdf.default-template-documentation"`.
 
 ## Outputs
 

@@ -4,6 +4,8 @@ This action exports a confluence page and downloads it using scroll pdf. It oupu
 
 ## Inputs
 
+### `server-url`
+**Required** Url of the server to be downloaded from. Default `"https://scroll-pdf.us.exporter.k15t.app"`.
 ### `page`
 **Required** Id of the page to be exported. Default `"World"`.
 ### `scope`

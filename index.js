@@ -4,6 +4,8 @@ const os = require('os');
 const fs = require('fs');
 const { Readable } = require('stream');
 const { finished } = require('stream/promises');
+const { createReadStream } = require("fs");
+const { createInterface } = require("readline");
 
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
@@ -38,7 +40,7 @@ async function main(serverUrl, pageId, scope, templateId) {
       isFinishedPollData = await isFinishedPollResponse.json();
       if (isFinishedPollData.status !== "complete") {
         console.log(`Generating at step ${isFinishedPollData.step}: ${isFinishedPollData.stepProgress}%`);
-        await delay(500);
+        await delay(1000);
         continue;
       }
       break;
@@ -50,7 +52,16 @@ async function main(serverUrl, pageId, scope, templateId) {
     const { body } = await fetch(isFinishedPollData.downloadUrl);
     const readableStream = Readable.fromWeb(body);
     await finished(readableStream.pipe(stream));
-    console.log(`Finished downloading. File available at ${filePath}`);
+
+    const inputStream = createReadStream(filePath);
+    let line = '<n/a>';
+    try {
+        for await (line of createInterface(inputStream)) break;
+    }
+    finally {
+        inputStream.destroy(); // Destroy file stream.
+    }
+    console.log(`Finished downloading. File available at ${filePath}. First line is "${line}"`);
 
     core.setOutput("path", filePath);
   } catch (error) {

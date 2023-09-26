@@ -1,0 +1,20 @@
+name: 'Download Confluence Scroll Pdf'
+description: 'Export and download a pdf from K15s confluence scroll pdf exporter'
+inputs:
+  page:
+    description: 'Id of the page to be exported. Get from url'
+    required: true
+  scope:
+    description: 'The scope of the action'
+    required: true
+    default: "descendants"
+  template:
+    description: 'Id of the scroll pdf template'
+    required: true
+    default: 'com.k15t.scroll.pdf.default-template-documentation'
+outputs:
+  path:
+    description: 'Path to the created pdf file'
+runs:
+  using: 'node20'
+  main: 'index.js'
